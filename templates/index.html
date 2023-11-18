@@ -1,0 +1,74 @@
+<html >
+<head>
+  <title>Predict the Weight</title>  
+</head>
+
+<body>
+ <div>
+	<h1>Предсказание эффективности кислотной обработки в нефтяной промышленности</h1>
+
+    <form action="{{ url_for('getprediction')}}"method="post">
+    	<p>
+            <select name="well" required="required">
+                <option value="">Тип скважины</option>
+                <option value="ВЕРТ">ВЕРТ</option>
+                <option value="БС">БС</option>
+                <option value="БГС">БГС</option>
+            </select>
+        </p>
+        <p>
+            <select name="type_form" required="required">
+                <option value="">Тип коллектора</option>
+                <option value="Карбонат-известняк">Карбонат-известняк</option>
+                <option value="Терригенный">Терригенный</option>
+                <option value="Карбонатно-терригенный">Карбонатно-терригенный</option>
+                <option value="Карбонат-доломит">Карбонат-доломит</option>
+            </select>
+        </p>
+        <p>
+            <input type="text" name="power_form" placeholder="Мощность пласта, м" required="required" />
+        </p>
+        <p>
+            <input type="text" name="begin_pressure" placeholder="Начальное пластовое давление, атм" required="required" />
+        </p>
+        <p>
+            <input type="text" name="current_pressure" placeholder="Текущее пластовое давление, атм" required="required" />
+        </p>
+        <p>
+            <input type="text" name="current_q_oil" placeholder="Tекущий дебит нефти, тн" required="required" />
+        </p>
+        <p>
+            <input type="text" name="current_q_liq" placeholder="Текущий дебит жидкости, м3" required="required" />
+        </p>
+        <p>
+            <input type="text" name="percent_water" placeholder="Обводненость, %" required="required" />
+        </p>
+        <p>
+            <input type="text" name="productivity" placeholder="Текущий коэффициент продуктивности, м3/сут/атм" required="required" />
+        </p>
+        <p>
+            <input type="text" name="skin" placeholder="Скин-фактор" required="required" />
+        </p>
+        <p>
+            <input type="text" name="temperature" placeholder="Температура пласта, град" required="required" />
+        </p>
+        <p>
+            <input type="text" name="viscosity" placeholder="Вязкость нефти, сПз" required="required" />
+        </p>
+        <p>
+            <input type="text" name="frac" placeholder="Наличие ГРП" required="required" />
+        </p>
+        <p>
+            <button type="submit" class="btn btn-primary btn-block btn-large">определить эффективность</button>
+        </p>
+    </form>
+
+   <br>
+   <br>
+   {{ output }}
+
+ </div>
+
+
+</body>
+</html>
